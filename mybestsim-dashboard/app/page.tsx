@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import statsJson from "@/public/stats.json";
 import AdvancedStats from "./components/AdvancedStats";
+import AnimatedSection from "./components/AnimatedSection";
 import DashboardFooter from "./components/DashboardFooter";
 import DashboardHeader from "./components/DashboardHeader";
 import ProviderChart from "./components/ProviderChart";
@@ -39,55 +40,71 @@ export default function Home() {
         <DashboardHeader />
 
         <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          <StatCard
-            title="Total cartes eSIM"
-            value={stats.total_produits.toLocaleString("fr-FR")}
-            hint="Tous fournisseurs confondus"
-            icon={Layers3}
-            accent="teal"
-          />
-          <StatCard
-            title="Produits > 100 €"
-            value={stats.produits_plus_100_euros.toLocaleString("fr-FR")}
-            hint="Offres premium du catalogue"
-            icon={BadgeEuro}
-            accent="amber"
-          />
-          <StatCard
-            title="Fourchette de prix"
-            value={`${formatEuro(stats.prix_min)} à ${formatEuro(stats.prix_max)}`}
-            hint="Minimum et maximum observés"
-            icon={Wallet}
-            accent="sky"
-          />
-          <StatCard
-            title="Prix moyen global"
-            value={formatEuro(stats.prix_moyen)}
-            hint="Moyenne arithmétique"
-            icon={ChartColumn}
-            accent="teal"
-          />
-          <StatCard
-            title="Prix médian"
-            value={formatEuro(stats.prix_median)}
-            hint="Moins sensible aux extrêmes"
-            icon={Scale}
-            accent="emerald"
-          />
-          <StatCard
-            title="Moyenne data / carte"
-            value={`${stats.data_moyenne_go.toLocaleString("fr-FR")} Go`}
-            hint="Hors offres illimitées"
-            icon={Database}
-            accent="sky"
-          />
+          <AnimatedSection delay={0}>
+            <StatCard
+              title="Total cartes eSIM"
+              value={stats.total_produits.toLocaleString("fr-FR")}
+              hint="Tous fournisseurs confondus"
+              icon={Layers3}
+              accent="teal"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.08}>
+            <StatCard
+              title="Produits > 100 €"
+              value={stats.produits_plus_100_euros.toLocaleString("fr-FR")}
+              hint="Offres premium du catalogue"
+              icon={BadgeEuro}
+              accent="amber"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.16}>
+            <StatCard
+              title="Fourchette de prix"
+              value={`${formatEuro(stats.prix_min)} à ${formatEuro(stats.prix_max)}`}
+              hint="Minimum et maximum observés"
+              icon={Wallet}
+              accent="sky"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.24}>
+            <StatCard
+              title="Prix moyen global"
+              value={formatEuro(stats.prix_moyen)}
+              hint="Moyenne arithmétique"
+              icon={ChartColumn}
+              accent="teal"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.32}>
+            <StatCard
+              title="Prix médian"
+              value={formatEuro(stats.prix_median)}
+              hint="Moins sensible aux extrêmes"
+              icon={Scale}
+              accent="emerald"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.4}>
+            <StatCard
+              title="Moyenne data / carte"
+              value={`${stats.data_moyenne_go.toLocaleString("fr-FR")} Go`}
+              hint="Hors offres illimitées"
+              icon={Database}
+              accent="sky"
+            />
+          </AnimatedSection>
         </section>
 
         <div className="mb-8">
-          <ProviderChart repartition={stats.repartition_fournisseurs} />
+          <AnimatedSection>
+            <ProviderChart repartition={stats.repartition_fournisseurs} />
+          </AnimatedSection>
         </div>
 
-        <AdvancedStats stats={stats} />
+        <AnimatedSection>
+          <AdvancedStats stats={stats} />
+        </AnimatedSection>
         <DashboardFooter />
       </main>
     </div>

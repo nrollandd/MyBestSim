@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CardSim } from "lucide-react";
 
 export default function DashboardHeader() {
@@ -13,6 +14,14 @@ export default function DashboardHeader() {
       <p className="mt-2 max-w-2xl text-base text-slate-600 sm:text-lg">
         Analyse du catalogue multi-fournisseurs
       </p>
+      <nav className="mt-5">
+        <Link
+          href="/article/esim-croisiere"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/80 bg-white/80 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur transition hover:border-teal-200 hover:text-teal-800"
+        >
+          Lire l'article : Internet en croisière →
+        </Link>
+      </nav>
     </header>
   );
 }

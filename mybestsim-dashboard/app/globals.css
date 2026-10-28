@@ -12,6 +12,23 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respecte la préférence utilisateur "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Sections ancrées (sommaire de l'article) : marge haute au scroll
+   pour que le titre reste bien visible sous un éventuel élément fixe. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
