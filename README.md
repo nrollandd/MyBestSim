@@ -10,7 +10,7 @@ Il regroupe les deux livrables demandés sur un seul déploiement Next.js :
 | Dashboard d'analyse des données fournisseurs | `/` |
 | Article SEO "Internet en croisière : quelle eSIM choisir ?" | `/article/esim-croisiere` |
 
-🔗 **Démo en ligne** : []
+🔗 **Démo en ligne** : [https://my-best-sim.vercel.app]
 
 ---
 
